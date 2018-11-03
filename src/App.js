@@ -6,8 +6,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <CreateTodo />
-        <TodosContainer />
+        <CreateTodo store={this.props.store} />
+        <Todos store={this.props.store} />
       </div>
     );
   }
