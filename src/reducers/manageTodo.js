@@ -1,17 +1,17 @@
-let id = 0;
-
 export default function manageTodo(state = {
-  todos: []
+  todos: [],
 }, action) {
+  console.log(action);
   switch (action.type) {
     case 'ADD_TODO':
-      id++;
-      const todo = Object.assign({}, action.todo, { id: id });
-      return { todos: state.todos.concat(todo) };
+ 
+      return { todos: state.todos.concat(action.payload.text) };
+ 
     case 'DELETE_TODO':
-      const todos = state.todos.filter(todo => todo.id !== action.id);
-      return  { todos }
+ 
+      return {todos: state.todos.filter(todo => todo !== action.payload)}
+ 
     default:
       return state;
   }
-};
+}
